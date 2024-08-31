@@ -42,7 +42,7 @@ A sample ERC20 token contract used for interacting with the `StakingWithERC20` c
 
 1. **Clone the Repository**:
    ```sh
-   git clone git@github.com:Gifftybabe/StakeETH.git
+   git clone https://github.com/Gifftybabe/StakeETH.git
    cd StakeETH.git
    ```
 
