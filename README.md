@@ -42,8 +42,8 @@ A sample ERC20 token contract used for interacting with the `StakingWithERC20` c
 
 1. **Clone the Repository**:
    ```sh
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone git@github.com:Gifftybabe/StakeETH.git
+   cd StakeETH.git
    ```
 
 2. **Install Dependencies**:
@@ -65,10 +65,4 @@ A sample ERC20 token contract used for interacting with the `StakingWithERC20` c
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-## Contributing
 
-Contributions are welcome! Please fork the repository and submit a pull request to propose changes.
-
----
-
-This introduction should provide a clearer and more engaging overview of the project.
