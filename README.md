@@ -1,68 +1,63 @@
-# Staking Smart Contracts
+# ERC20 and Ether Staking Project
 
-This repository provides a set of Solidity smart contracts designed for staking both ERC20 tokens and Ether. The contracts enable users to earn rewards by locking their assets in the contract for specified periods, with varying interest rates based on the chosen staking tier.
+## Overview
+This project consists of two Solidity contracts: 
+1. `ERC20Staking` – Enables users to stake ERC20 tokens and receive rewards over time.
+2. `EtherStaking` – Allows users to stake Ether (ETH) and earn rewards based on staking duration.
 
-## Contracts Included
+The owner of the contracts can set the reward rate, deposit tokens or Ether, and withdraw tokens or Ether from the contract. Users can stake their tokens or Ether, view their current stake, and withdraw their staked assets along with rewards after the staking period.
 
-### `StakingWithERC20`
+## Contracts
 
-Allows users to stake ERC20 tokens. Users can select from three tiers, each offering different interest rates and durations:
+### 1. `ERC20Staking`
+The `ERC20Staking` contract allows users to stake an ERC20 token and earn rewards based on the staked amount and time. The reward rate is set by the contract owner.
 
-- **Tier 1**: 5% interest for 30 days
-- **Tier 2**: 10% interest for 60 days
-- **Tier 3**: 15% interest for 90 days
+#### Features:
+- **Staking**: Users can stake a specified amount of ERC20 tokens for a given duration.
+- **Reward Calculation**: Rewards are calculated daily based on the reward rate set by the contract owner.
+- **Withdrawal**: After the staking period has elapsed, users can withdraw both the staked tokens and the accumulated rewards.
+- **Owner Controls**: The owner can set the reward rate, deposit tokens, and withdraw tokens from the contract.
 
-#### Key Features:
-- **Stake Tokens**: Deposit ERC20 tokens and choose a staking tier.
-- **Claim Rewards**: Retrieve earned rewards after the staking period.
-- **View Stakes**: Access detailed information on user stakes.
+#### Key Functions:
+- `deposit(uint256 _amount)`: Allows the owner to deposit tokens into the contract.
+- `stake(uint256 _amount, uint256 _duration)`: Allows users to stake tokens for a specified duration.
+- `withdrawStake()`: Users can withdraw their staked tokens and rewards after the staking period ends.
+- `calculateReward(address _user)`: Calculates the staking reward based on the reward rate and time staked.
 
-### `StakingWithEther`
+### 2. `EtherStaking`
+The `EtherStaking` contract allows users to stake Ether and earn rewards based on the staked amount and time. Similar to the ERC20 contract, the reward rate is set by the contract owner.
 
-Facilitates staking of Ether with similar tier-based interest rates and durations:
+#### Features:
+- **Ether Staking**: Users can stake Ether for a specific duration and earn rewards.
+- **Reward Calculation**: Rewards are calculated daily based on the staking duration and reward rate.
+- **Withdrawal**: Users can withdraw their staked Ether and rewards after the staking period has elapsed.
+- **Owner Controls**: The owner can set the reward rate and withdraw Ether from the contract.
 
-- **Tier 1**: 5% interest for 30 days
-- **Tier 2**: 10% interest for 60 days
-- **Tier 3**: 15% interest for 90 days
+#### Key Functions:
+- `deposit()`: Allows the owner to deposit Ether into the contract.
+- `stake(uint256 _duration)`: Users can stake Ether for a specified duration.
+- `withdrawStake()`: Users can withdraw their staked Ether and rewards after the staking period ends.
+- `calculateReward(address _user)`: Calculates the staking reward based on the reward rate and time staked.
 
-#### Key Features:
-- **Stake Ether**: Deposit Ether and select a staking tier.
-- **Claim Rewards**: Withdraw rewards upon completing the staking period.
-- **View Stakes**: Retrieve details of user stakes.
-- **Fallback Function**: Allows the contract to receive Ether.
+## Requirements
 
-### `NGtoken`
+- Solidity version `0.8.26`
+- OpenZeppelin contracts for ERC20 (`IERC20.sol`, `ERC20.sol`)
+  
+## Installation
 
-A sample ERC20 token contract used for interacting with the `StakingWithERC20` contract. This contract supports basic minting operations and initial token distribution.
-
-#### Key Features:
-- **Mint Tokens**: Create new tokens (restricted to the contract owner).
-
-## Getting Started
-
-1. **Clone the Repository**:
-   ```sh
-   git clone https://github.com/Gifftybabe/StakeETH.git
-   cd StakeETH.git
+1. Install dependencies:
+   ```bash
+   npm install @openzeppelin/contracts
    ```
 
-2. **Install Dependencies**:
-   ```sh
-   npm install
+2. Compile the contracts:
+   ```bash
+   npx hardhat compile
    ```
 
-3. **Deploy Contracts**:
-   - **Deploy `NGtoken`**: Deploy the ERC20 token contract first.
-   - **Deploy `StakingWithERC20`**: Deploy the ERC20 staking contract with the address of the deployed token.
-   - **Deploy `StakingWithEther`**: Deploy the Ether staking contract.
-
-4. **Interact with Contracts**:
-   - Use the `stake` functions to deposit assets.
-   - Claim rewards using the `claimReward` functions.
-   - Check staking details with the `getUserStakes` functions.
+3. Deploy the contracts using Hardhat or any compatible Ethereum deployment tool.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
-
+This project is licensed under the MIT License.
