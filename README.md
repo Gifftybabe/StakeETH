@@ -1,63 +1,51 @@
 # ERC20 and Ether Staking Project
 
 ## Overview
-This project consists of two Solidity contracts: 
-1. `ERC20Staking` – Enables users to stake ERC20 tokens and receive rewards over time.
-2. `EtherStaking` – Allows users to stake Ether (ETH) and earn rewards based on staking duration.
+This project includes two Solidity smart contracts that allow users to stake ERC20 tokens or Ether (ETH) and earn rewards over time. Both contracts were successfully deployed on the **Lisk Sepolia Testnet** at the addresses provided below.
 
-The owner of the contracts can set the reward rate, deposit tokens or Ether, and withdraw tokens or Ether from the contract. Users can stake their tokens or Ether, view their current stake, and withdraw their staked assets along with rewards after the staking period.
+### Contracts:
+1. **ERC20Staking** – Enables users to stake ERC20 tokens and earn rewards.
+2. **EtherStaking** – Allows users to stake Ether and earn rewards based on the staking duration.
 
-## Contracts
+The contract owner can set the reward rate, deposit or withdraw assets, and manage the staking process, while users can stake their assets and withdraw them along with rewards after the staking period.
 
-### 1. `ERC20Staking`
-The `ERC20Staking` contract allows users to stake an ERC20 token and earn rewards based on the staked amount and time. The reward rate is set by the contract owner.
+## Deployed Contracts
 
-#### Features:
-- **Staking**: Users can stake a specified amount of ERC20 tokens for a given duration.
-- **Reward Calculation**: Rewards are calculated daily based on the reward rate set by the contract owner.
-- **Withdrawal**: After the staking period has elapsed, users can withdraw both the staked tokens and the accumulated rewards.
-- **Owner Controls**: The owner can set the reward rate, deposit tokens, and withdraw tokens from the contract.
+- **ERC20Staking Contract**: `0x1eD88aacAF58bbbfE2c05e60eC67d945D58140Ab`
+- **ERC20Token Contract**: `0x04779da65d93DcF42Cf50589779cdB52D77A4c0B`
+- **EtherStaking Contract**: `0x203f460B27333B150cd4a41A62120E351Ac6eA8C`
 
-#### Key Functions:
-- `deposit(uint256 _amount)`: Allows the owner to deposit tokens into the contract.
-- `stake(uint256 _amount, uint256 _duration)`: Allows users to stake tokens for a specified duration.
-- `withdrawStake()`: Users can withdraw their staked tokens and rewards after the staking period ends.
-- `calculateReward(address _user)`: Calculates the staking reward based on the reward rate and time staked.
+## Contract Details
 
-### 2. `EtherStaking`
-The `EtherStaking` contract allows users to stake Ether and earn rewards based on the staked amount and time. Similar to the ERC20 contract, the reward rate is set by the contract owner.
+### 1. ERC20Staking Contract
+
+The `ERC20Staking` contract allows users to stake an ERC20 token and receive rewards based on the amount staked and the staking duration. The owner sets the reward rate.
 
 #### Features:
-- **Ether Staking**: Users can stake Ether for a specific duration and earn rewards.
-- **Reward Calculation**: Rewards are calculated daily based on the staking duration and reward rate.
-- **Withdrawal**: Users can withdraw their staked Ether and rewards after the staking period has elapsed.
-- **Owner Controls**: The owner can set the reward rate and withdraw Ether from the contract.
+- **Staking**: Stake ERC20 tokens for a chosen period.
+- **Reward Calculation**: Rewards are calculated daily based on the reward rate set by the owner.
+- **Withdrawals**: After the staking period ends, users can withdraw their tokens and rewards.
+- **Owner Controls**: The owner manages reward rates, token deposits, and withdrawals.
 
 #### Key Functions:
-- `deposit()`: Allows the owner to deposit Ether into the contract.
-- `stake(uint256 _duration)`: Users can stake Ether for a specified duration.
-- `withdrawStake()`: Users can withdraw their staked Ether and rewards after the staking period ends.
-- `calculateReward(address _user)`: Calculates the staking reward based on the reward rate and time staked.
+- `deposit(uint256 _amount)`: Owner deposits ERC20 tokens into the contract.
+- `stake(uint256 _amount, uint256 _duration)`: Users stake tokens for a chosen duration.
+- `withdrawStake()`: Withdraw staked tokens and rewards after the staking period ends.
+- `calculateReward(address _user)`: Calculates user rewards based on the reward rate and staking period.
 
-## Requirements
+### 2. EtherStaking Contract
 
-- Solidity version `0.8.26`
-- OpenZeppelin contracts for ERC20 (`IERC20.sol`, `ERC20.sol`)
-  
-## Installation
+The `EtherStaking` contract enables users to stake Ether and earn rewards based on the staking duration. The owner sets the reward rate.
 
-1. Install dependencies:
-   ```bash
-   npm install @openzeppelin/contracts
-   ```
+#### Features:
+- **Ether Staking**: Users stake Ether for a specific duration.
+- **Reward Calculation**: Rewards are calculated daily based on the staked Ether and time.
+- **Withdrawals**: Users can withdraw Ether and rewards after the staking period ends.
+- **Owner Controls**: The owner manages reward rates and Ether withdrawals.
 
-2. Compile the contracts:
-   ```bash
-   npx hardhat compile
-   ```
+#### Key Functions:
+- `deposit()`: Owner deposits Ether into the contract.
+- `stake(uint256 _duration)`: Users stake Ether for a specific period.
+- `withdrawStake()`: Withdraw staked Ether and rewards after the staking period ends.
+- `calculateReward(address _user)`: Calculates user rewards based on the reward rate and staking duration.
 
-3. Deploy the contracts using Hardhat or any compatible Ethereum deployment tool.
-
-## License
-
-This project is licensed under the MIT License.
