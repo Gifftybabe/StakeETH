@@ -5,7 +5,7 @@ const rewardRate = 2;
 
 const ERC20StakingModule = buildModule("ERC20StakingModule", (m) => {
 
-    const eRC20Staking = m.contract("ERC20Staking", [tokenAddress, rewardRate]);
+    const eRC20Staking = m.contract("ERC20Staking", [tokenAddress, rewardRate], {});
 
     return { eRC20Staking };
 });

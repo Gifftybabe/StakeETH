@@ -1,0 +1,5 @@
+{
+  "ERC20StakingModule#ERC20Staking": "0x1eD88aacAF58bbbfE2c05e60eC67d945D58140Ab",
+  "ERC20TokenModule#ERC20Token": "0x04779da65d93DcF42Cf50589779cdB52D77A4c0B",
+  "EtherStakingModule#EtherStaking": "0x203f460B27333B150cd4a41A62120E351Ac6eA8C"
+}

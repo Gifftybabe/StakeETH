@@ -2,7 +2,7 @@ import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
 
 const EtherStakingModule = buildModule("EtherStakingModule", (m) => {
 
-    const etherStaking = m.contract("EtherStaking");
+    const etherStaking = m.contract("EtherStaking", [2]);
 
     return { etherStaking };
 });
